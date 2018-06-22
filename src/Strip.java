@@ -1,13 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Strip {
+public class Strip implements Comparable<Strip> {
 
     public final int STRIP_WIDTH = 2;
 
     protected final char[] text;
 
     protected Strip next;
+
+    public double weight;
 
     public Strip(int height) {
         this.text = new char[height * STRIP_WIDTH];
@@ -148,5 +150,10 @@ public class Strip {
         StringBuilder buf = new StringBuilder();
         for (int i = 0; i < this.height(); i++) buf.append(this.getLine(i)).append("\n");
         return buf.toString();
+    }
+
+    @Override
+    public int compareTo(Strip o) {
+        return (int)(this.weight - o.weight);
     }
 }

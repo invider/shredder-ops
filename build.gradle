@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+sourceSets {
+    main.java.srcDirs = ['src']
+    main.resources.srcDirs = ['res']
+    test.java.srcDirs = ['test']
+}
+
+version = '1.0'
+mainClassName = 'ShredderOps'
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+

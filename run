@@ -1,0 +1,6 @@
+#!/bin/sh
+
+gradle build
+
+java -jar ./build/libs/shredder-ops-1.0.jar $@
+
